@@ -5,15 +5,20 @@ function comprar() {
     let tipoIngresso = document.getElementById('tipo-ingresso').value;
     
     //Pegar a quantidade disponível de cada tipo
-    let quantidadePista = document.getElementById('qtd-pista').textContent;
-    let quantidadeSuperior = document.getElementById('qtd-superior').textContent;
-    let quantidadeInferior = document.getElementById('qtd-inferior').textContent;
+    let quantidadePista = parseInt(document.getElementById('qtd-pista').textContent);
+    let quantidadeSuperior = parseInt(document.getElementById('qtd-superior').textContent);
+    let quantidadeInferior = parseInt(document.getElementById('qtd-inferior').textContent);
     
+    // adicionando uma funcionalidade se a quantidade for menor que 0
 
-    //Alertar se que acabaram o ingresso
-    
+    if (quantidade < 0) {
+        alert('Coloque uma quantidade válida!');
+        return;
+    }
 
-    //subtrair a quantidade especifica pelo quantidade especifica
+
+
+    //subtrair a quantidade especifica pelo quantidade especifica.Alertar se que acabaram o ingresso
     if (tipoIngresso == 'inferior') {
         if (quantidade > quantidadeInferior) {
             alert(`Quantidade indisponível para ${tipoIngresso}!`);
@@ -37,7 +42,8 @@ function comprar() {
         document.getElementById('qtd-pista').innerHTML = `<span id="qtd-pista">${quantidadePista}</span>`;
     }
 
-
+    document.getElementById('qtd').value = '';
+   
     
 
 
